@@ -22,7 +22,66 @@ export const metadata: Metadata = {
         default: "České sovy",
         template: "%s | České sovy",
     },
-    description: "Informační web o sovách žijících v České republice.",
+    metadataBase: new URL("https://www.ceskesovy.cz"),
+    description: "Informační web o sovách žijících v České republice, jejich poznávání a ochraně.",
+    keywords: ["sovy", "ptáci", "ochrana přírody", "poznávání zvířat", "česká fauna"],
+    manifest: "/icon/site.webmanifest",
+    icons: [
+        {
+            rel: "icon",
+            type: "image/png",
+            sizes: "96x96",
+            url: "/icon/favicon-96x96.png",
+        },
+        {
+            rel: "icon",
+            type: "image/svg+xml",
+            url: "/icon/favicon.svg",
+        },
+        {
+            rel: "shortcut icon",
+            url: "/icon/favicon.ico",
+        },
+        {
+            rel: "apple-touch-icon",
+            sizes: "180x180",
+            url: "/icon/apple-touch-icon.png",
+        },
+    ],
+    appleWebApp: {
+        title: "České sovy",
+        capable: true,
+    },
+    applicationName: "České sovy",
+    authors: [
+        {
+            name: "Daniel Pátek",
+            url: "https://www.ceskesovy.cz/o-projektu#autor",
+        },
+    ],
+    publisher: "České sovy",
+    creator: "Ing. Daniel Pátek",
+    category: "Příroda a zvířata",
+    classification: "Zoologie, Ornitologie",
+    generator: "Next.js",
+    robots: {
+        index: true,
+        follow: true,
+    },
+    openGraph: {
+        title: "České sovy",
+        description: "Informační web o sovách žijících v České republice, jejich poznávání a ochraně.",
+        url: "https://www.ceskesovy.cz",
+        siteName: "České sovy",
+        locale: "cs_CZ",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "České sovy",
+        description: "Informační web o sovách žijících v České republice, jejich poznávání a ochraně.",
+        creator: "@ceskesovy",
+    },
 };
 
 export default function RootLayout({
@@ -30,20 +89,14 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const currentYear = new Date().getFullYear();
+
     return (
         <html lang="cs" data-theme="forest">
-            <head>
-                <link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96" />
-                <link rel="icon" type="image/svg+xml" href="/icon/favicon.svg" />
-                <link rel="shortcut icon" href="/icon/favicon.ico" />
-                <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png" />
-                <meta name="apple-mobile-web-app-title" content="České sovy" />
-                <link rel="manifest" href="/icon/site.webmanifest" />
-            </head>
             <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
                 <div className="flex min-h-screen flex-col">
                     <header className="navbar sticky top-0 z-50 border-b border-base-300/60 bg-base-100/85 backdrop-blur">
-                        <div className="container mx-auto flex w-full max-w-6xl items-center justify-between px-4">
+                        <div className="container mx-auto flex w-full max-w-7xl items-center justify-between px-4">
                             <Link href="/">
                                 <div className="w-30">
                                     <Image
@@ -51,8 +104,7 @@ export default function RootLayout({
                                         alt="Logo České sovy"
                                         width={770}
                                         height={460}
-                                        objectFit="contain"
-                                        className="inline-block mr-2"
+                                        className="inline-block mr-2 object-contain"
                                     />
                                 </div>
                             </Link>
@@ -60,10 +112,10 @@ export default function RootLayout({
                         </div>
                     </header>
 
-                    <main className="container mx-auto w-full max-w-6xl flex-1 px-4 py-10">{children}</main>
+                    <main className="container mx-auto w-full max-w-7xl flex-1 px-4 py-10">{children}</main>
 
                     <footer className="bg-base-200/70 py-10 text-base-content">
-                        <div className="container mx-auto grid w-full max-w-6xl gap-8 px-4 md:grid-cols-3">
+                        <div className="container mx-auto grid w-full max-w-7xl gap-8 px-4 md:grid-cols-3">
                             <div className="space-y-2">
                                 <h3 className="text-lg font-semibold">České sovy</h3>
                                 <p className="text-sm text-base-content/80">Praktický průvodce poznáváním sov a jejich ochranou v české krajině.</p>
@@ -104,7 +156,7 @@ export default function RootLayout({
                         </div>
                         <div className="container mx-auto mt-8 w-full max-w-6xl px-4">
                             <div className="border-t border-base-300/70 pt-4 text-center text-xs text-base-content/70">
-                                © 2026 České sovy. Všechna práva vyhrazena.
+                                © {currentYear} České sovy. Všechna práva vyhrazena.
                             </div>
                         </div>
                     </footer>

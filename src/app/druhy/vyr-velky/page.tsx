@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
-import mainImage from "../../../../public/druhy/vyr-velky/vyr-velky-bubo-bubo.jpg";
-import image1 from "../../../../public/druhy/vyr-velky/vyrvelky.jpg";
-import image2 from "../../../../public/druhy/vyr-velky/vyr-velky-hnizdeni.jpg";
-import image3 from "../../../../public/druhy/vyr-velky/vyr-velky.jpg";
-import image4 from "../../../../public/druhy/vyr-velky/vyr.jpg";
-import mapImage from "../../../../public/druhy/vyr-velky/map.webp";
+import { HeroLightboxGallery, MapLightboxGallery } from "@/components/lightbox-image-galleries";
+
+import mainImage from "@/assets/vyr-velky/vyr-velky-bubo-bubo.jpg";
+import image1 from "@/assets/vyr-velky/vyrvelky.jpg";
+import image2 from "@/assets/vyr-velky/vyr-velky-hnizdeni.jpg";
+import image3 from "@/assets/vyr-velky/vyr-velky.jpg";
+import image4 from "@/assets/vyr-velky/vyr.jpg";
+import mapImage from "@/assets/vyr-velky/map.webp";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.ceskesovy.cz/druhy/vyr-velky"),
     title: "Výr velký (Bubo bubo)",
-    description: "Praktický terénní profil výra velkého: poznání v terénu, hlas, hnízdění, potrava, ochrana a sezónní aktivita v ČR.",
+    description: "Největší sova Evropy. Jak výra poznat, kdy houká, kde hnízdí a kdy máte největší šanci ho v ČR pozorovat.",
     openGraph: {
         title: "Výr velký (Bubo bubo) | České sovy",
         description: "Největší sova Evropy. Jak výra poznat, kdy houká, kde hnízdí a kdy máte největší šanci ho v ČR pozorovat.",
@@ -25,6 +26,22 @@ export const metadata: Metadata = {
         ],
         locale: "cs_CZ",
         type: "article",
+    },
+    abstract:
+        "Výr velký je největší sova Evropy, známý pro své hluboké houkání a impozantní vzhled. Tento profil nabízí praktické informace pro pozorovatele: jak výra poznat v terénu, kdy je nejaktivnější, jaké má hnízdní návyky, co jí a jak je chráněný v ČR.",
+    keywords: ["výr velký", "bubo bubo", "sova", "druhy sov", "poznávání sov", "ochrana sov", "hnízdění výra", "potrava výra", "hlas výra"],
+    twitter: {
+        card: "summary_large_image",
+        title: "Výr velký (Bubo bubo) | České sovy",
+        description: "Největší sova Evropy. Jak výra poznat, kdy houká, kde hnízdí a kdy máte největší šanci ho v ČR pozorovat.",
+        images: [
+            {
+                url: mainImage.src,
+                width: mainImage.width,
+                height: mainImage.height,
+                alt: "Výr velký (Bubo bubo)",
+            },
+        ],
     },
 };
 
@@ -57,7 +74,17 @@ export default function VyrVelkyPage() {
         { label: "Hlas", value: "hluboké „ú-hu“, aktivita hlavně od podzimu do jara" },
     ] as const;
 
-    const jsonLd = {
+    const heroGalleryImages = [
+        { src: mainImage.src, alt: "Výr velký u paty stromu s mláďaty", loading: "eager", priority: true },
+        { src: image1.src, alt: "Detail hlavy výra velkého" },
+        { src: image2.src, alt: "Výr velký v trávě" },
+        { src: image3.src, alt: "Výr velký při noční aktivitě" },
+        { src: image4.src, alt: "Silueta výra velkého za soumraku" },
+    ] as const;
+
+    const mapGalleryImages = [{ src: mapImage.src, alt: "Mapa výskytu Výra velkého ve světě" }] as const;
+
+    const jsonLdTaxon = {
         "@context": "https://schema.org",
         "@type": "Taxon",
         name: "Výr velký",
@@ -65,25 +92,29 @@ export default function VyrVelkyPage() {
         description: "Největší evropská sova s hlubokým hlasem, v ČR zvláště chráněný druh.",
         url: "https://www.ceskesovy.cz/druhy/vyr-velky",
         sameAs: ["https://cs.wikipedia.org/wiki/V%C3%BDr_velk%C3%BD", "https://en.wikipedia.org/wiki/Eurasian_eagle-owl"],
-        hasPart: [
-            {
-                "@type": "AudioObject",
-                name: "Typické houkání výra velkého",
-                contentUrl: "https://www.ceskesovy.cz/druhy/vyr-velky/audio/vyr-velky-samec.ogg",
-                encodingFormat: "audio/ogg",
-            },
-            {
-                "@type": "AudioObject",
-                name: "Volání samice výra velkého",
-                contentUrl: "https://www.ceskesovy.cz/druhy/vyr-velky/audio/vyr-velky-samice.ogg",
-                encodingFormat: "audio/ogg",
-            },
-        ],
     };
+
+    const jsonLdAudio = [
+        {
+            "@context": "https://schema.org",
+            "@type": "AudioObject",
+            name: "Typické houkání výra velkého",
+            contentUrl: "https://www.ceskesovy.cz/druhy/vyr-velky/audio/houkani.mp3",
+            encodingFormat: "audio/mpeg",
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "AudioObject",
+            name: "Typické houkání výra velkého – samice",
+            contentUrl: "https://www.ceskesovy.cz/druhy/vyr-velky/audio/houkani_2.mp3",
+            encodingFormat: "audio/mpeg",
+        },
+    ];
 
     return (
         <article className="space-y-10">
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdTaxon) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdAudio) }} />
 
             <header className="space-y-2">
                 <h1 className="text-3xl font-bold md:text-4xl">
@@ -92,50 +123,21 @@ export default function VyrVelkyPage() {
                         (<em>Bubo bubo</em>)
                     </span>
                 </h1>
-                <p className="text-sm text-base-content/60">Eurasian eagle-owl</p>
-                <p className="max-w-3xl text-sm leading-relaxed text-base-content/75 md:text-base mt-3">
-                    Největší sova Evropy, výrazná oranžovýma očima a hlubokým hlasem. V Česku hnízdí hlavně ve skalách a lomech a nejaktivnější je od
-                    podzimu do jara.
+                <p className="text-sm text-base-content/60">Eurasian eagle owl</p>
+                <p className="mt-8 max-w-3xl text-lg md:text-2xl font-medium leading-snug text-base-content/90">
+                    Největší sova Evropy. Noční obr se žhnoucíma očima a hlasem, který se nese krajinou kilometry daleko.
                 </p>
             </header>
 
             <section className="space-y-6">
-                <div className="grid gap-4 lg:grid-cols-[1.45fr_1fr]">
-                    <div className="card overflow-hidden bg-base-100 shadow-md ring-1 ring-base-300">
-                        <Image
-                            src={mainImage}
-                            alt="Výr velký u paty stromu s mláďaty"
-                            className="h-full w-full object-cover"
-                            loading="eager"
-                            priority
-                        />
-                    </div>
-
-                    <div className="grid grid-cols-2 grid-rows-2 gap-4 self-stretch">
-                        <div className="card h-full overflow-hidden bg-base-100 shadow-sm ring-1 ring-base-300">
-                            <Image src={image1} alt="Detail hlavy výra velkého" className="h-full w-full object-cover" loading="lazy" />
-                        </div>
-
-                        <div className="card h-full overflow-hidden bg-base-100 shadow-sm ring-1 ring-base-300">
-                            <Image src={image2} alt="Výr velký v trávě" className="h-full w-full object-cover" loading="lazy" />
-                        </div>
-
-                        <div className="card h-full overflow-hidden bg-base-100 shadow-sm ring-1 ring-base-300">
-                            <Image src={image3} alt="Výr velký při noční aktivitě" className="h-full w-full object-cover" loading="lazy" />
-                        </div>
-
-                        <div className="card h-full overflow-hidden bg-base-100 shadow-sm ring-1 ring-base-300">
-                            <Image src={image4} alt="Silueta výra velkého za soumraku" className="h-full w-full object-cover" loading="lazy" />
-                        </div>
-                    </div>
-                </div>
+                <HeroLightboxGallery images={heroGalleryImages} />
 
                 <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-linear-to-br from-primary/10 via-base-200/55 to-base-100 px-5 py-6 md:px-8 md:py-7">
                     <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-primary/15 blur-2xl" />
                     <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-info/10 blur-2xl" />
 
                     <div className="relative space-y-4">
-                        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Proč je Výr tak výjimečný</h2>
+                        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Proč je výr tak výjimečný</h2>
 
                         <div className="grid gap-3 text-sm leading-relaxed text-base-content/85 md:grid-cols-3">
                             <p className="rounded-xl bg-base-100/55 p-4 shadow-sm ring-1 ring-base-300/70">
@@ -160,24 +162,35 @@ export default function VyrVelkyPage() {
                 </div>
             </section>
 
-            <section className="grid items-start gap-8 lg:grid-cols-[1.45fr_0.9fr]">
+            <section className="grid items-start gap-8 lg:grid-cols-[1.45fr_0.75fr]">
                 <div className="space-y-8 lg:pr-4">
                     <section className="space-y-3">
                         <h2 className="text-2xl font-semibold">Jak poznat výra v terénu</h2>
                         <p className="text-base leading-relaxed text-base-content/85">
-                            Výr velký působí v terénu <strong className="font-semibold text-base-content">mimořádně robustně</strong>, má dlouhé
-                            <em className="font-medium"> „ušičky“</em> a nápadně oranžové oči, které dobře svítí i za slabého světla. Proti jiným
-                            sovám je <span className="font-semibold text-primary/90">výrazně větší</span> a v klidu často sedí na vyvýšeném
-                            stanovišti, odkud kontroluje okolí.
+                            Výr velký působí v krajině <strong className="font-semibold text-base-content">mimořádně robustně</strong> – je to sova,
+                            kterou si jen těžko spletete. Má dlouhé pernaté <em className="font-medium">„ušičky“</em>, širokou hlavu a nápadně
+                            oranžové oči, které ve světle doslova svítí.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Proti ostatním sovám je <span className="font-semibold text-primary/90">výrazně větší</span>. Často sedí klidně na
+                            vyvýšeném místě – na skále, balvanu nebo stromě – odkud pozoruje okolí. V siluetě působí těžce a sebejistě. Když roztáhne
+                            křídla, rozpětí může přesáhnout 180 cm.
                         </p>
                     </section>
 
                     <section className="space-y-3">
                         <h2 className="text-2xl font-semibold">Výskyt a prostředí</h2>
                         <p className="text-base leading-relaxed text-base-content/85">
-                            V Česku osidluje především skalnaté oblasti, lomy, okraje lesů a členitou kulturní krajinu, kde má dostatek klidu i
-                            kořisti. Hnízdní lokality bývají často mimo hustě zastavěná území a výskyt sahá od nížin po střední nadmořské výšky,
-                            zejména tam, kde je <span className="font-semibold text-base-content">kombinace klidu a otevřeného terénu</span>.
+                            V Česku osidluje především skalnaté oblasti, lomy, okraje lesů i členitou kulturní krajinu. Vyhledává místa, kde má
+                            dostatek klidu a zároveň otevřený prostor pro lov.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Hnízdní lokality bývají mimo hustě zastavěná území. Výskyt sahá od nížin po střední nadmořské výšky – klíčová je
+                            <span className="font-semibold text-base-content"> kombinace úkrytu, vyvýšených stanovišť a dostatku kořisti</span>.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Výr je <span className="font-semibold text-primary/90">silně teritoriální</span>. Jeden pár může obývat rozsáhlé území,
+                            které si pravidelně obhajuje hlasem i přítomností.
                         </p>
                         <a href="#mapa-vyskytu" className="btn btn-sm btn-outline w-fit">
                             Přejít na mapu výskytu
@@ -187,26 +200,45 @@ export default function VyrVelkyPage() {
                     <section className="space-y-3">
                         <h2 className="text-2xl font-semibold">Hnízdění</h2>
                         <p className="text-base leading-relaxed text-base-content/85">
-                            Tok začíná obvykle od ledna a snůška přichází nejčastěji od února do dubna. Samice klade zpravidla dvě až čtyři vejce a
-                            inkubace trvá přibližně 34 až 36 dní. Mláďata následně opouštějí bezprostřední okolí hnízda postupně během pozdního jara a
-                            léta, takže nejcitlivější je období <span className="font-semibold text-primary/90">od února do května</span>.
+                            Tok začíná už v zimě, často v lednu. V tichých večerech se krajinou nese hluboké houkání samce.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Snůška přichází nejčastěji od února do dubna. Samice klade obvykle dvě až čtyři vejce a inkubace trvá přibližně 34–36 dní.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Mláďata opouštějí bezprostřední okolí hnízda ještě před plnou schopností letu – šplhají po skalách, ukrývají se v okolí a
+                            rodiče je dál krmí. Nejcitlivější období je <span className="font-semibold text-primary/90">od února do května</span>, kdy
+                            může rušení znamenat opuštění snůšky.
                         </p>
                     </section>
 
                     <section className="space-y-3">
                         <h2 className="text-2xl font-semibold">Potrava</h2>
                         <p className="text-base leading-relaxed text-base-content/85">
-                            Výr loví zejména savce a středně velké ptáky, ale podle dostupnosti využívá i obojživelníky a příležitostně větší kořist.
-                            Kombinuje <strong className="font-semibold text-base-content">tichý přepad</strong> z vyvýšeného místa s aktivním
-                            vyhledáváním kořisti během noční patroly.
+                            Výr je <strong className="font-semibold text-base-content">vrcholový noční predátor</strong>. Loví především savce střední
+                            velikosti – hlodavce, potkany, zajíce – ale také ptáky. Podle dostupnosti může využít i obojživelníky nebo jiné menší
+                            obratlovce.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Loví dvěma způsoby: tiše vyčkává na vyvýšeném místě a poté přepadne kořist, nebo aktivně patroluje krajinou nízkým, téměř
+                            neslyšným letem.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Dokáže ulovit i jiné sovy nebo dravce, není to však běžná a dominantní složka jeho potravy – spíše příležitostná situace.
                         </p>
                     </section>
 
                     <section className="space-y-3">
                         <h2 className="text-2xl font-semibold">Ohrožení a ochrana</h2>
                         <p className="text-base leading-relaxed text-base-content/85">
-                            Mezi hlavní rizika patří kolize s vedením, rušení na hnízdištích a sekundární otravy. Výr je v České republice zvláště
-                            chráněný druh a dlouhodobý monitoring potvrzuje, že ochrana hnízdišť i odpovědné hlášení pozorování mají přímý dopad na
+                            Přestože působí nezranitelně, jeho největším rizikem je člověk.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            Mezi hlavní hrozby patří kolize s elektrickým vedením, rušení na hnízdištích a sekundární otravy z prostředí.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            V České republice je výr zvláště chráněný druh. Dlouhodobý monitoring ukazuje, že ochrana hnízdišť, zabezpečení vedení a
+                            odpovědné chování lidí v přírodě mají přímý vliv na
                             <span className="font-semibold text-primary/90"> stabilitu populace</span>.
                         </p>
                     </section>
@@ -214,9 +246,13 @@ export default function VyrVelkyPage() {
                     <section className="space-y-3">
                         <h2 className="text-2xl font-semibold">Hlas</h2>
                         <p className="text-base leading-relaxed text-base-content/85">
-                            Typický hlas výra je hluboké a pomalé „ú-hu“, které se ozývá hlavně při obhajobě teritoria a párové komunikaci.
-                            <span className="font-semibold text-base-content"> Samec mívá hlubší tón</span>, zatímco samice zní o něco výše a
-                            kratčeji.
+                            Typický hlas výra je hluboké, pomalé „ú-hu“, které se ozývá především při obhajobě teritoria a při komunikaci mezi
+                            partnery.
+                        </p>
+                        <p className="text-base leading-relaxed text-base-content/85">
+                            <span className="font-semibold text-base-content">Samec mívá hlubší, dunivější tón</span>. Samice zní o něco výše a
+                            kratčeji. Za klidné noci může být houkání slyšitelné i několik kilometrů daleko – a právě to dává noční krajině její
+                            zvláštní, pradávnou atmosféru.
                         </p>
                         <div className="space-y-4 mt-5">
                             <div className="rounded-xl border border-base-300 bg-base-200/35 p-4">
@@ -253,12 +289,14 @@ export default function VyrVelkyPage() {
                         <h2 className="text-2xl font-semibold">Další tajemství nočního obra</h2>
                         <ul className="list-disc space-y-2 pl-6 text-base leading-relaxed text-base-content/85">
                             <li>
-                                Dokáže otočit hlavu až o <span className="font-semibold text-base-content">270°</span>, aniž by pohnul tělem.
+                                Dokáže otočit hlavu až o <span className="font-semibold text-base-content">270°</span>, protože jeho oči jsou pevně
+                                zasazené v lebce.
                             </li>
-                            <li>Jeho stisk pařátů je tak silný, že kořist často zabije okamžitě.</li>
-                            <li>Hnízdí přímo na zemi nebo na skalních římsách – žádné větve nepotřebuje.</li>
+                            <li>Letí téměř neslyšně díky speciální stavbě letek, které tlumí proudění vzduchu.</li>
+                            <li>Hnízdí přímo na zemi nebo na skalních římsách – nestaví klasické hnízdo.</li>
                             <li>
-                                Patří mezi málo predátorů, kteří si troufnou i na <span className="font-semibold text-primary/90">jiné sovy</span>.
+                                Patří mezi nejmohutnější noční predátory Evropy a stojí{" "}
+                                <span className="font-semibold text-primary">na vrcholu potravního řetězce</span>.
                             </li>
                         </ul>
                     </section>
@@ -301,9 +339,7 @@ export default function VyrVelkyPage() {
                         <p className="text-sm text-base-content/75">
                             Orientační mapa výskytu Výra velkého (<em>Bubo bubo</em>). Vyskytuje se po celém území kontinentu.
                         </p>
-                        <div className="overflow-hidden rounded-xl border border-base-300 bg-base-200/30">
-                            <Image src={mapImage} alt="Mapa výskytu Výra velkého ve světě" className="h-auto w-full object-contain" loading="lazy" />
-                        </div>
+                        <MapLightboxGallery images={mapGalleryImages} />
                     </div>
                 </div>
             </section>
@@ -362,7 +398,7 @@ export default function VyrVelkyPage() {
                                 <div className="mt-1 space-y-1">
                                     {item.watch === "high" && (
                                         <span data-testid="timeline-badge-watch-high" className="badge badge-success badge-xs xl:w-full">
-                                            top
+                                            vysoká
                                         </span>
                                     )}
                                     {item.watch === "medium" && (
@@ -412,6 +448,44 @@ export default function VyrVelkyPage() {
                         </a>
                     </div>
                 </div>
+            </section>
+
+            <section className="space-y-3">
+                <h2 className="text-2xl font-semibold">Použité zdroje</h2>
+                <p className="text-base leading-relaxed text-base-content/80">
+                    Informace vycházejí z ověřených přehledových zdrojů o druhu <em>Bubo bubo</em>:
+                </p>
+                <ol className="list-decimal space-y-2 pl-6 text-sm leading-relaxed text-base-content/85">
+                    <li>
+                        Encyclopaedia Britannica –{" "}
+                        <a href="https://www.britannica.com/animal/eagle-owl" target="_blank" rel="noopener noreferrer" className="link link-hover">
+                            https://www.britannica.com/animal/eagle-owl
+                        </a>
+                    </li>
+                    <li>
+                        Wikipedia –{" "}
+                        <a
+                            href="https://en.wikipedia.org/wiki/Eurasian_eagle-owl"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="link link-hover"
+                        >
+                            https://en.wikipedia.org/wiki/Eurasian_eagle-owl
+                        </a>
+                    </li>
+                    <li>
+                        BirdLife International –{" "}
+                        <a href="https://www.birdlife.org" target="_blank" rel="noopener noreferrer" className="link link-hover">
+                            https://www.birdlife.org
+                        </a>
+                    </li>
+                    <li>
+                        IUCN (Red List) –{" "}
+                        <a href="https://www.iucnredlist.org/species/22688927" target="_blank" rel="noopener noreferrer" className="link link-hover">
+                            https://www.iucnredlist.org/species/22688927
+                        </a>
+                    </li>
+                </ol>
             </section>
         </article>
     );

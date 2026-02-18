@@ -11,7 +11,7 @@ export default function Home() {
         <div className="space-y-16 md:space-y-24">
             <section className="relative overflow-hidden rounded-2xl">
                 <img
-                    src="owl-hero.jpg"
+                    src="/owl-hero.jpg"
                     alt="Sova v nočním lese"
                     className="absolute inset-0 h-full w-full object-cover object-[70%_80%]"
                     loading="eager"
