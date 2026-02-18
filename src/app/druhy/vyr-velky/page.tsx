@@ -9,6 +9,8 @@ import image3 from "@/assets/vyr-velky/vyr-velky.jpg";
 import image4 from "@/assets/vyr-velky/vyr.jpg";
 import mapImage from "@/assets/vyr-velky/map.webp";
 
+import timeline from "@/assets/vyr-velky/timeline.json";
+
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.ceskesovy.cz/druhy/vyr-velky"),
     title: "Výr velký (Bubo bubo)",
@@ -46,21 +48,6 @@ export const metadata: Metadata = {
 };
 
 export default function VyrVelkyPage() {
-    const timeline = [
-        { monthShort: "Led", monthFull: "Leden", nesting: false, voice: true, chicks: false, watch: "high" },
-        { monthShort: "Úno", monthFull: "Únor", nesting: true, voice: true, chicks: false, watch: "high" },
-        { monthShort: "Bře", monthFull: "Březen", nesting: true, voice: true, chicks: false, watch: "high" },
-        { monthShort: "Dub", monthFull: "Duben", nesting: true, voice: false, chicks: true, watch: "medium" },
-        { monthShort: "Kvě", monthFull: "Květen", nesting: true, voice: false, chicks: true, watch: "medium" },
-        { monthShort: "Čvn", monthFull: "Červen", nesting: false, voice: false, chicks: true, watch: "medium" },
-        { monthShort: "Čvc", monthFull: "Červenec", nesting: false, voice: false, chicks: true, watch: "low" },
-        { monthShort: "Srp", monthFull: "Srpen", nesting: false, voice: false, chicks: false, watch: "low" },
-        { monthShort: "Zář", monthFull: "Září", nesting: false, voice: false, chicks: false, watch: "medium" },
-        { monthShort: "Říj", monthFull: "Říjen", nesting: false, voice: true, chicks: false, watch: "high" },
-        { monthShort: "Lis", monthFull: "Listopad", nesting: false, voice: true, chicks: false, watch: "high" },
-        { monthShort: "Pro", monthFull: "Prosinec", nesting: false, voice: true, chicks: false, watch: "high" },
-    ] as const;
-
     const quickFacts = [
         { label: "Hmotnost", value: "samec 1,8–2,8 kg / samice 2,3–4,2 kg" },
         { label: "Rozpětí křídel", value: "150–188 cm" },
@@ -76,10 +63,10 @@ export default function VyrVelkyPage() {
 
     const heroGalleryImages = [
         { src: mainImage.src, alt: "Výr velký u paty stromu s mláďaty", loading: "eager", priority: true },
-        { src: image1.src, alt: "Detail hlavy výra velkého" },
-        { src: image2.src, alt: "Výr velký v trávě" },
-        { src: image3.src, alt: "Výr velký při noční aktivitě" },
-        { src: image4.src, alt: "Silueta výra velkého za soumraku" },
+        { src: image1.src, alt: "Výr velký za letu při lovu" },
+        { src: image2.src, alt: "Mláďata výra velkého" },
+        { src: image3.src, alt: "Výr velký za letu" },
+        { src: image4.src, alt: "Výr velký stojící" },
     ] as const;
 
     const mapGalleryImages = [{ src: mapImage.src, alt: "Mapa výskytu Výra velkého ve světě" }] as const;
@@ -332,7 +319,7 @@ export default function VyrVelkyPage() {
                 </aside>
             </section>
 
-            <section id="mapa-vyskytu" className="">
+            <section id="mapa-vyskytu">
                 <div className="space-y-4">
                     <h2 className="text-2xl font-semibold">Mapa výskytu</h2>
                     <div className="space-y-2">
