@@ -5,7 +5,11 @@ Statický web postavený na Next.js (App Router), Tailwind CSS a DaisyUI.
 ## Obsah MVP
 
 - Domovská stránka: `/`
-- Detail druhu: `/druhy/vyr-velky`
+- Detaily druhů:
+    - `/druhy/vyr-velky`
+    - `/druhy/sycek-obecny`
+    - `/druhy/vyrecek-maly`
+    - `/druhy/syc-rousny`
 - Postup při nálezu: `/co-delat`
 - O projektu: `/o-projektu`
 

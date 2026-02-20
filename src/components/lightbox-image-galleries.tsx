@@ -41,7 +41,7 @@ export function HeroLightboxGallery({ images }: HeroGalleryProps) {
             <div className="grid gap-4 lg:grid-cols-[1.45fr_1fr]">
                 <button
                     type="button"
-                    className="card overflow-hidden bg-base-100 shadow-md ring-1 ring-base-300 cursor-zoom-in"
+                    className="card h-80 sm:h-96 lg:h-136 overflow-hidden bg-base-100 shadow-md ring-1 ring-base-300 cursor-zoom-in"
                     onClick={() => openAt(0)}
                     aria-label={`Zobrazit obrázek na celou obrazovku: ${images[0].alt}`}
                 >
@@ -56,7 +56,7 @@ export function HeroLightboxGallery({ images }: HeroGalleryProps) {
                     />
                 </button>
 
-                <div className="grid grid-cols-2 grid-rows-2 gap-4 self-stretch">
+                <div className="grid h-56 sm:h-72 lg:h-136 grid-cols-2 grid-rows-2 gap-4 self-stretch">
                     {images.slice(1).map((image, imageIndex) => (
                         <button
                             key={image.src}
