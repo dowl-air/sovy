@@ -70,15 +70,20 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="https://images.unsplash.com/photo-1543549790-8b5f4a028cfb?auto=format&fit=crop&w=1000&q=80"
-                                alt="Puštík obecný"
+                                src="/druhy/sovice-snezni/images/sovice-snezni-main.jpg"
+                                alt="Sovice sněžní"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
                             />
                         </figure>
                         <div className="card-body">
-                            <h3 className="card-title">Puštík obecný</h3>
-                            <p>Častý noční obyvatel lesů i parků, známý svým snadno rozpoznatelným hlasem.</p>
+                            <h3 className="card-title">Sovice sněžní</h3>
+                            <p>Arktická bílá sova, která se ve střední Evropě objevuje jen vzácně, hlavně v zimních měsících.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/sovice-snezni" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
                         </div>
                     </article>
 
@@ -94,6 +99,46 @@ export default function Home() {
                         <div className="card-body">
                             <h3 className="card-title">Sýček obecný</h3>
                             <p>Menší kriticky ohrožená sova kulturní krajiny, aktivní často i za šera.</p>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
+                                src="/druhy/sova-palena/images/sova-palena-main.jpg"
+                                alt="Sova pálená"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Sova pálená</h3>
+                            <p>Sova se srdcovitým obličejem a syčivým hlasem, v Česku silně ohrožená změnami zemědělské krajiny.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/sova-palena" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
+                                src="/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg"
+                                alt="Sovice krahujová"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Sovice krahujová</h3>
+                            <p>Sova severních lesů s dlouhým ocasem a dravčí siluetou, která často loví i za dne.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/sovice-krahujova" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
                         </div>
                     </article>
                 </div>

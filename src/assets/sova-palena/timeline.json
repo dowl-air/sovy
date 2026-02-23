@@ -1,0 +1,14 @@
+[
+    { "monthShort": "Led", "monthFull": "Leden", "nesting": false, "voice": false, "chicks": false, "watch": "low" },
+    { "monthShort": "Úno", "monthFull": "Únor", "nesting": false, "voice": true, "chicks": false, "watch": "medium" },
+    { "monthShort": "Bře", "monthFull": "Březen", "nesting": true, "voice": true, "chicks": false, "watch": "high" },
+    { "monthShort": "Dub", "monthFull": "Duben", "nesting": true, "voice": true, "chicks": false, "watch": "high" },
+    { "monthShort": "Kvě", "monthFull": "Květen", "nesting": true, "voice": true, "chicks": true, "watch": "high" },
+    { "monthShort": "Čvn", "monthFull": "Červen", "nesting": true, "voice": false, "chicks": true, "watch": "high" },
+    { "monthShort": "Čvc", "monthFull": "Červenec", "nesting": true, "voice": false, "chicks": true, "watch": "medium" },
+    { "monthShort": "Srp", "monthFull": "Srpen", "nesting": true, "voice": false, "chicks": true, "watch": "medium" },
+    { "monthShort": "Zář", "monthFull": "Září", "nesting": false, "voice": true, "chicks": false, "watch": "medium" },
+    { "monthShort": "Říj", "monthFull": "Říjen", "nesting": false, "voice": true, "chicks": false, "watch": "medium" },
+    { "monthShort": "Lis", "monthFull": "Listopad", "nesting": false, "voice": false, "chicks": false, "watch": "low" },
+    { "monthShort": "Pro", "monthFull": "Prosinec", "nesting": false, "voice": false, "chicks": false, "watch": "low" }
+]

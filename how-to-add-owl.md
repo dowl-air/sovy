@@ -47,6 +47,24 @@ Typical asset files in `src/assets/new-owl/`:
 
 ## 3) Research facts from reliable public sources
 
+### Mandatory research crawl before writing content
+
+Before writing any species text, the agent must actively visit relevant source pages and extract facts into working context.
+
+Minimum rule:
+
+- do not rely only on prior model knowledge or remembered values
+- open and review all key source pages for the target species (CS + EN reference, eBird, conservation context, map source)
+- build a concise research note set in context (local notes) with:
+    - numeric values and ranges (length, wingspan, weight, clutch size)
+    - breeding timing and behavior
+    - distribution and habitat
+    - conservation status (global + Czech context when available)
+    - exact source URL per claim
+    - any conflicting values with a selected final range and rationale
+
+Hard rule: if a factual claim cannot be linked to a visited source page, do not include it in final species copy.
+
 ### Required factual categories
 
 Collect at minimum:
@@ -71,6 +89,8 @@ Use multiple independent sources and cross-check numbers:
 ### Quality rule
 
 Do not rely on a single source for numeric claims. If values differ, prefer ranges and avoid false precision.
+
+Also ensure every final number used in the page is present in the research notes collected from visited source pages.
 
 ---
 
@@ -286,9 +306,15 @@ Keep JSON-LD factual and concise.
 
 - [ ] Create species folders (`src/assets`, `src/app/druhy`, `public/audio`)
 - [ ] Research facts from at least 2–3 sources
+- [ ] Open and review all relevant source pages for the target species (not just one)
+- [ ] Create research notes in context with claim → source URL mapping
+- [ ] Resolve conflicting values before writing final text
 - [ ] Prepare `sources` list early
 - [ ] Download and verify gallery images
+- [ ] Ensure hero gallery has at least 5 images total (1 main + 4 additional)
 - [ ] Download and verify 2 audio samples
+- [ ] Wire audio into page data (`audioIntro` + `audioSamples`) and render `SpeciesAudioSection`
+- [ ] Add matching JSON-LD `AudioObject[]` entries with public `contentUrl`
 - [ ] Obtain full-res map source
 - [ ] Obtain full-res map source from Wikipedia/Wikimedia
 - [ ] Process map in strict order (invert first, then recolor green, then export webp)
@@ -354,10 +380,15 @@ PY
 If the source is SVG, fetch a large rendered PNG (e.g., 4096px width), then convert to final WEBP after processing.
 
 ```bash
-curl -fLs \
-   'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/AtheneNoctuaIUCN.svg/4096px-AtheneNoctuaIUCN.svg.png' \
-   -o 'src/assets/<slug>/map-source-full.png'
+curl -A 'Mozilla/5.0 (compatible; owls-bot/1.0)' --retry 4 --retry-delay 2 -fLs \
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/AtheneNoctuaIUCN.svg/4096px-AtheneNoctuaIUCN.svg.png' \
+    -o 'src/assets/<slug>/map-source-full.png' \
+|| curl -A 'Mozilla/5.0 (compatible; owls-bot/1.0)' --retry 4 --retry-delay 2 -fLs \
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/AtheneNoctuaIUCN.svg/2048px-AtheneNoctuaIUCN.svg.png' \
+    -o 'src/assets/<slug>/map-source-full.png'
 ```
+
+Note: Wikimedia may return HTTP 429 for very large thumbnails. The fallback to 2048px is acceptable for this project.
 
 ### C) Map transformation script (required order)
 
@@ -369,32 +400,41 @@ from pathlib import Path
 from PIL import Image
 
 src = Path('src/assets/<slug>/map-source-full.png')
-out = Path('src/assets/<slug>/map.webp')
+out = Path('public/druhy/<slug>/images/map.webp')
 target_green = (30, 207, 100)  # #1ECF64, aligned with eagle-owl map
 
-img = Image.open(src).convert('RGB')
-px = img.load()
-w, h = img.size
+img_src = Image.open(src).convert('RGB')
+img_out = img_src.copy()
+px_src = img_src.load()
+px_out = img_out.load()
+w, h = img_src.size
 
 for y in range(h):
-      for x in range(w):
-            r, g, b = px[x, y]
+    for x in range(w):
+        r, g, b = px_src[x, y]
 
-            # occurrence mask from common source maps:
-            # - green resident range
-            # - yellow/olive introduced range
-            occurrence = ((g > 90 and r < 170 and b < 150) or (r > 200 and g > 200 and b < 140))
+        # 1) invert base first
+        inv = (255 - r, 255 - g, 255 - b)
 
-            # 1) invert base colors, 2) recolor occurrence green
-            if occurrence:
-                  px[x, y] = target_green
-            else:
-                  px[x, y] = (255 - r, 255 - g, 255 - b)
+        # robust occurrence mask for anti-aliased source maps
+        mx = max(r, g, b)
+        mn = min(r, g, b)
+        sat = 0 if mx == 0 else (mx - mn) / mx
+        is_resident_like = g > r + 12 and g > b + 8
+        is_nonbreeding_like = b > g + 15 and b > r + 15
 
-img.save(out, format='WEBP', quality=92, method=6)
-print('saved:', out, 'size:', img.size)
+        # 2) recolor all occurrence-like pixels to project green
+        if sat > 0.38 and (is_resident_like or is_nonbreeding_like):
+            px_out[x, y] = target_green
+        else:
+            px_out[x, y] = inv
+
+img_out.save(out, format='WEBP', quality=92, method=6)
+print('saved:', out, 'size:', img_out.size)
 PY
 ```
+
+If you still see pink/purple artifacts, increase the saturation threshold sensitivity (e.g. from `0.38` to `0.32`) and rerun.
 
 ### D) Validate downloaded files are real media
 
@@ -413,10 +453,35 @@ The practical pattern used in this project:
 2. Verify each ID returns audio content.
 3. Download selected assets into `public/druhy/<slug>/audio/`.
 
+Important: direct eBird species pages can redirect to login in automated environments. Use Macaulay search API to get IDs.
+
+#### E0) Resolve candidate IDs via Macaulay search API
+
+```bash
+python3 - <<'PY'
+import requests
+
+params = {
+    "taxonCode": "<speciesCode>",  # e.g. nohowl, snwowl1, litowl1
+    "mediaType": "audio",
+    "sort": "rating_rank_desc",
+    "count": 25,
+    "initialCursorMark": "0",
+}
+headers = {"User-Agent": "Mozilla/5.0 (compatible; owls-bot/1.0)"}
+
+r = requests.get("https://search.macaulaylibrary.org/api/v1/search", params=params, headers=headers, timeout=30)
+r.raise_for_status()
+
+for item in r.json()["results"]["content"][:15]:
+    print(item.get("catalogId"), "|", item.get("behaviors"), "|", item.get("userDisplayName"))
+PY
+```
+
 #### E1) Verify candidate asset IDs
 
 ```bash
-for id in 651213824 651171621; do
+for id in <ID1> <ID2>; do
    echo "-- $id"
    curl -sI "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/$id" | grep -i 'content-type\|content-length'
 done
