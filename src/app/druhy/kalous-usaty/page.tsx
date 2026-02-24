@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Středně velká štíhlá sova s výraznými pernatými „oušky“. Jak kalouse ušatého poznat, slyšet a kde ho v ČR hledat.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/kalous-usaty/images/kalous-usaty-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/kalous-usaty/images/kalous-usaty-main.webp",
                 alt: "Kalous ušatý (Asio otus)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Kalous ušatý (Asio otus) | České sovy",
         description: "Středně velká štíhlá sova s výraznými pernatými „oušky“. Jak kalouse ušatého poznat, slyšet a kde ho v ČR hledat.",
-        images: ["https://www.ceskesovy.cz/druhy/kalous-usaty/images/kalous-usaty-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/kalous-usaty/images/kalous-usaty-main.webp"],
     },
 };
 
@@ -59,11 +59,11 @@ export default function KalousUsatyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/kalous-usaty/images/kalous-usaty-main.jpg", alt: "Kalous ušatý na větvi", loading: "eager", priority: true },
-        { src: "/druhy/kalous-usaty/images/kalous-usaty-portret.jpg", alt: "Portrét kalouse ušatého" },
-        { src: "/druhy/kalous-usaty/images/kalous-usaty-na-vetvi.jpg", alt: "Kalous ušatý v přirozeném prostředí" },
-        { src: "/druhy/kalous-usaty/images/kalous-usaty-detail.jpg", alt: "Detail hlavy kalouse ušatého" },
-        { src: "/druhy/kalous-usaty/images/kalous-usaty-v-letu.jpg", alt: "Kalous ušatý při letu" },
+        { src: "/druhy/kalous-usaty/images/kalous-usaty-main.webp", alt: "Kalous ušatý na větvi", loading: "eager", priority: true },
+        { src: "/druhy/kalous-usaty/images/kalous-usaty-portret.webp", alt: "Portrét kalouse ušatého" },
+        { src: "/druhy/kalous-usaty/images/kalous-usaty-na-vetvi.webp", alt: "Kalous ušatý v přirozeném prostředí" },
+        { src: "/druhy/kalous-usaty/images/kalous-usaty-detail.webp", alt: "Detail hlavy kalouse ušatého" },
+        { src: "/druhy/kalous-usaty/images/kalous-usaty-v-letu.webp", alt: "Kalous ušatý při letu" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/kalous-usaty/images/map.webp", alt: "Mapa výskytu kalouse ušatého" }] as const;

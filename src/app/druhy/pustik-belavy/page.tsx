@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Velká světlá lesní sova s dlouhým ocasem. Jak puštíka bělavého poznat, kde se v ČR vzácně vyskytuje a kdy je nejaktivnější.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/pustik-belavy/images/pustik-belavy-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/pustik-belavy/images/pustik-belavy-main.webp",
                 alt: "Puštík bělavý (Strix uralensis)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Puštík bělavý (Strix uralensis) | České sovy",
         description: "Velká světlá lesní sova s dlouhým ocasem. Jak puštíka bělavého poznat, kde se v ČR vzácně vyskytuje a kdy je nejaktivnější.",
-        images: ["https://www.ceskesovy.cz/druhy/pustik-belavy/images/pustik-belavy-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/pustik-belavy/images/pustik-belavy-main.webp"],
     },
 };
 
@@ -59,11 +59,11 @@ export default function PustikBelavyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/pustik-belavy/images/pustik-belavy-main.jpg", alt: "Puštík bělavý v detailu", loading: "eager", priority: true },
-        { src: "/druhy/pustik-belavy/images/pustik-belavy-portret.jpg", alt: "Puštík bělavý při kroužkování" },
-        { src: "/druhy/pustik-belavy/images/pustik-belavy-nocni-lov.jpg", alt: "Puštík bělavý při nočním lovu" },
-        { src: "/druhy/pustik-belavy/images/pustik-belavy-ve-stromu.jpg", alt: "Puštík bělavý na větvi" },
-        { src: "/druhy/pustik-belavy/images/pustik-belavy-let.jpg", alt: "Puštík bělavý zblízka se světlým zbarvením" },
+        { src: "/druhy/pustik-belavy/images/pustik-belavy-main.webp", alt: "Puštík bělavý v detailu", loading: "eager", priority: true },
+        { src: "/druhy/pustik-belavy/images/pustik-belavy-portret.webp", alt: "Puštík bělavý při kroužkování" },
+        { src: "/druhy/pustik-belavy/images/pustik-belavy-nocni-lov.webp", alt: "Puštík bělavý při nočním lovu" },
+        { src: "/druhy/pustik-belavy/images/pustik-belavy-ve-stromu.webp", alt: "Puštík bělavý na větvi" },
+        { src: "/druhy/pustik-belavy/images/pustik-belavy-let.webp", alt: "Puštík bělavý zblízka se světlým zbarvením" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/pustik-belavy/images/map.webp", alt: "Mapa výskytu puštíka bělavého" }] as const;

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Sova se srdcovitým obličejem a syčivým hlasem. Jak sovu pálenou poznat, kde ji hledat a proč je v ČR silně ohrožená.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sova-palena/images/sova-palena-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sova-palena/images/sova-palena-main.webp",
                 alt: "Sova pálená (Tyto alba)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Sova pálená (Tyto alba) | České sovy",
         description: "Sova se srdcovitým obličejem a syčivým hlasem. Jak sovu pálenou poznat, kde ji hledat a proč je v ČR silně ohrožená.",
-        images: ["https://www.ceskesovy.cz/druhy/sova-palena/images/sova-palena-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/sova-palena/images/sova-palena-main.webp"],
     },
 };
 
@@ -59,11 +59,11 @@ export default function SovaPalenaPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/sova-palena/images/sova-palena-main.jpg", alt: "Sova pálená v detailu", loading: "eager", priority: true },
-        { src: "/druhy/sova-palena/images/sova-palena-let.jpg", alt: "Sova pálená při letu" },
-        { src: "/druhy/sova-palena/images/sova-palena-posed.jpg", alt: "Sova pálená na posedu" },
-        { src: "/druhy/sova-palena/images/sova-palena-skotsko.jpg", alt: "Sova pálená v otevřené krajině" },
-        { src: "/druhy/sova-palena/images/sova-palena-guttata.jpg", alt: "Sova pálená poddruhu guttata v klidovém postoji" },
+        { src: "/druhy/sova-palena/images/sova-palena-main.webp", alt: "Sova pálená v detailu", loading: "eager", priority: true },
+        { src: "/druhy/sova-palena/images/sova-palena-let.webp", alt: "Sova pálená při letu" },
+        { src: "/druhy/sova-palena/images/sova-palena-posed.webp", alt: "Sova pálená na posedu" },
+        { src: "/druhy/sova-palena/images/sova-palena-skotsko.webp", alt: "Sova pálená v otevřené krajině" },
+        { src: "/druhy/sova-palena/images/sova-palena-guttata.webp", alt: "Sova pálená poddruhu guttata v klidovém postoji" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/sova-palena/images/map.webp", alt: "Mapa výskytu sovy pálené" }] as const;

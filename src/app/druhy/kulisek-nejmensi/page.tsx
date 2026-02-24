@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Nejmenší evropská sova. Jak kulíška nejmenšího poznat, kdy se ozývá a kde ho v ČR hledat.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.webp",
                 alt: "Kulíšek nejmenší (Glaucidium passerinum)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Kulíšek nejmenší (Glaucidium passerinum) | České sovy",
         description: "Nejmenší evropská sova. Jak kulíška nejmenšího poznat, kdy se ozývá a kde ho v ČR hledat.",
-        images: ["https://www.ceskesovy.cz/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.webp"],
     },
 };
 
@@ -60,15 +60,15 @@ export default function KulisekNejmensiPage() {
 
     const heroGalleryImages = [
         {
-            src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.jpg",
+            src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.webp",
             alt: "Kulíšek nejmenší v lesním prostředí",
             loading: "eager",
             priority: true,
         },
-        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-portret.jpg", alt: "Portrét kulíška nejmenšího" },
-        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-na-vetvi.jpg", alt: "Kulíšek nejmenší na větvi" },
-        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-detail.jpg", alt: "Kulíšek nejmenší v detailu" },
-        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-v-lese.jpg", alt: "Kulíšek nejmenší ve smrkovém lese" },
+        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-portret.webp", alt: "Portrét kulíška nejmenšího" },
+        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-na-vetvi.webp", alt: "Kulíšek nejmenší na větvi" },
+        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-detail.webp", alt: "Kulíšek nejmenší v detailu" },
+        { src: "/druhy/kulisek-nejmensi/images/kulisek-nejmensi-v-lese.webp", alt: "Kulíšek nejmenší ve smrkovém lese" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/kulisek-nejmensi/images/map.webp", alt: "Mapa výskytu kulíška nejmenšího" }] as const;

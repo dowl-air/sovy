@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Drobounká tažná sova s monotónním pískáním. Jak výrečka poznat, kdy ho v ČR nejspíš uslyšíte a kde ho hledat.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/vyrecek-maly/images/vyrecek_main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/vyrecek-maly/images/vyrecek_main.webp",
                 alt: "Výreček malý (Otus scops)",
             },
         ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         description: "Drobounká tažná sova s monotónním pískáním. Jak výrečka poznat, kdy ho v ČR nejspíš uslyšíte a kde ho hledat.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/vyrecek-maly/images/vyrecek_main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/vyrecek-maly/images/vyrecek_main.webp",
                 alt: "Výreček malý (Otus scops)",
             },
         ],
@@ -64,11 +64,11 @@ export default function VyrecekMalyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/vyrecek-maly/images/vyrecek_main.jpg", alt: "Výreček malý na větvi ve večerním světle", loading: "eager", priority: true },
-        { src: "/druhy/vyrecek-maly/images/vyrecek_leti.jpg", alt: "Výreček malý v letu" },
+        { src: "/druhy/vyrecek-maly/images/vyrecek_main.webp", alt: "Výreček malý na větvi ve večerním světle", loading: "eager", priority: true },
+        { src: "/druhy/vyrecek-maly/images/vyrecek_leti.webp", alt: "Výreček malý v letu" },
         { src: "/druhy/vyrecek-maly/images/vyrecek_krmi.webp", alt: "Výreček malý při krmení mláděte" },
-        { src: "/druhy/vyrecek-maly/images/vyrecek.jpeg", alt: "Detail výrečka malého v krycím zbarvení" },
-        { src: "/druhy/vyrecek-maly/images/vyrecekmaly.jpeg", alt: "Výreček malý v klidovém postoji" },
+        { src: "/druhy/vyrecek-maly/images/vyrecek.webp", alt: "Detail výrečka malého v krycím zbarvení" },
+        { src: "/druhy/vyrecek-maly/images/vyrecekmaly.webp", alt: "Výreček malý v klidovém postoji" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/vyrecek-maly/images/map.webp", alt: "Mapa výskytu výrečka malého" }] as const;

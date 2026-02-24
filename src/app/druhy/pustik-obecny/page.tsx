@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Nejběžnější noční sova českých lesů i parků. Jak puštíka poznat, kdy se ozývá a kde ho v ČR nejčastěji najít.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/pustik-obecny/images/pustik-obecny-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/pustik-obecny/images/pustik-obecny-main.webp",
                 alt: "Puštík obecný (Strix aluco)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Puštík obecný (Strix aluco) | České sovy",
         description: "Nejběžnější noční sova českých lesů i parků. Jak puštíka poznat, kdy se ozývá a kde ho v ČR nejčastěji najít.",
-        images: ["https://www.ceskesovy.cz/druhy/pustik-obecny/images/pustik-obecny-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/pustik-obecny/images/pustik-obecny-main.webp"],
     },
 };
 
@@ -59,11 +59,11 @@ export default function PustikObecnyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/pustik-obecny/images/pustik-obecny-main.jpg", alt: "Puštík obecný v detailu", loading: "eager", priority: true },
-        { src: "/druhy/pustik-obecny/images/pustik-obecny-portret.jpg", alt: "Portrét puštíka obecného" },
-        { src: "/druhy/pustik-obecny/images/pustik-obecny-korist.jpg", alt: "Puštík obecný s ulovenou kořistí" },
-        { src: "/druhy/pustik-obecny/images/pustik-obecny-ve-stromu.jpg", alt: "Puštík obecný odpočívající ve stromě" },
-        { src: "/druhy/pustik-obecny/images/pustik-obecny-detail.jpg", alt: "Puštík obecný v lesním prostředí" },
+        { src: "/druhy/pustik-obecny/images/pustik-obecny-main.webp", alt: "Puštík obecný v detailu", loading: "eager", priority: true },
+        { src: "/druhy/pustik-obecny/images/pustik-obecny-portret.webp", alt: "Portrét puštíka obecného" },
+        { src: "/druhy/pustik-obecny/images/pustik-obecny-korist.webp", alt: "Puštík obecný s ulovenou kořistí" },
+        { src: "/druhy/pustik-obecny/images/pustik-obecny-ve-stromu.webp", alt: "Puštík obecný odpočívající ve stromě" },
+        { src: "/druhy/pustik-obecny/images/pustik-obecny-detail.webp", alt: "Puštík obecný v lesním prostředí" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/pustik-obecny/images/map.webp", alt: "Mapa výskytu puštíka obecného" }] as const;

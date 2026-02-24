@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Malá sova kulturní krajiny, která dříve bývala běžná. Jak sýčka poznat, kde ho hledat a proč v ČR výrazně ubýval.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sycek-obecny/images/sycek_main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sycek-obecny/images/sycek_main.webp",
                 alt: "Sýček obecný (Athene noctua)",
             },
         ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         description: "Malá sova kulturní krajiny, která dříve bývala běžná. Jak sýčka poznat, kde ho hledat a proč v ČR výrazně ubýval.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sycek-obecny/images/sycek_main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sycek-obecny/images/sycek_main.webp",
                 alt: "Sýček obecný (Athene noctua)",
             },
         ],
@@ -64,11 +64,11 @@ export default function SycekObecnyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/sycek-obecny/images/sycek_main.jpg", alt: "Sýček obecný na vyvýšeném posedu", loading: "eager", priority: true },
-        { src: "/druhy/sycek-obecny/images/sycek_portrait.jpg", alt: "Portrét sýčka obecného" },
-        { src: "/druhy/sycek-obecny/images/sycek_let.jpg", alt: "Sýček obecný v letu" },
-        { src: "/druhy/sycek-obecny/images/sycek_par.jpg", alt: "Pár sýčků obecných" },
-        { src: "/druhy/sycek-obecny/images/sycek_mlade.jpg", alt: "Mladý sýček obecný" },
+        { src: "/druhy/sycek-obecny/images/sycek_main.webp", alt: "Sýček obecný na vyvýšeném posedu", loading: "eager", priority: true },
+        { src: "/druhy/sycek-obecny/images/sycek_portrait.webp", alt: "Portrét sýčka obecného" },
+        { src: "/druhy/sycek-obecny/images/sycek_let.webp", alt: "Sýček obecný v letu" },
+        { src: "/druhy/sycek-obecny/images/sycek_par.webp", alt: "Pár sýčků obecných" },
+        { src: "/druhy/sycek-obecny/images/sycek_mlade.webp", alt: "Mladý sýček obecný" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/sycek-obecny/images/map.webp", alt: "Mapa výskytu sýčka obecného" }] as const;

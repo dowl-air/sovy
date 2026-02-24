@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Ikonická bílá sova arktické tundry. Jak sovici sněžní poznat, kde hnízdí a kdy se může výjimečně objevit i ve střední Evropě.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sovice-snezni/images/sovice-snezni-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sovice-snezni/images/sovice-snezni-main.webp",
                 alt: "Sovice sněžní (Bubo scandiacus)",
             },
         ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         description: "Ikonická bílá sova arktické tundry. Jak sovici sněžní poznat, kde hnízdí a kdy se může výjimečně objevit i ve střední Evropě.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sovice-snezni/images/sovice-snezni-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sovice-snezni/images/sovice-snezni-main.webp",
                 alt: "Sovice sněžní (Bubo scandiacus)",
             },
         ],
@@ -64,11 +64,11 @@ export default function SoviceSnezniPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/sovice-snezni/images/sovice-snezni-main.jpg", alt: "Sovice sněžní v zimním prostředí", loading: "eager", priority: true },
-        { src: "/druhy/sovice-snezni/images/sovice-snezni-2.jpg", alt: "Sovice sněžní na otevřeném pobřeží" },
-        { src: "/druhy/sovice-snezni/images/sovice-snezni-3.jpg", alt: "Sovice sněžní sedící na písečné duně" },
-        { src: "/druhy/sovice-snezni/images/sovice-snezni-4.jpg", alt: "Samec sovice sněžní v detailu" },
-        { src: "/druhy/sovice-snezni/images/sovice-snezni-5.jpg", alt: "Sovice sněžní v letu" },
+        { src: "/druhy/sovice-snezni/images/sovice-snezni-main.webp", alt: "Sovice sněžní v zimním prostředí", loading: "eager", priority: true },
+        { src: "/druhy/sovice-snezni/images/sovice-snezni-2.webp", alt: "Sovice sněžní na otevřeném pobřeží" },
+        { src: "/druhy/sovice-snezni/images/sovice-snezni-3.webp", alt: "Sovice sněžní sedící na písečné duně" },
+        { src: "/druhy/sovice-snezni/images/sovice-snezni-4.webp", alt: "Samec sovice sněžní v detailu" },
+        { src: "/druhy/sovice-snezni/images/sovice-snezni-5.webp", alt: "Sovice sněžní v letu" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/sovice-snezni/images/map.webp", alt: "Mapa světového výskytu sovice sněžní" }] as const;

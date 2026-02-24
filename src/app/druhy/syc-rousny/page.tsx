@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Malá lesní sova severu a hor. Jak sýce rousného poznat, kdy se ozývá a kde máš v ČR největší šanci na záznam.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/syc-rousny/images/syc-rousny-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/syc-rousny/images/syc-rousny-main.webp",
                 alt: "Sýc rousný (Aegolius funereus)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Sýc rousný (Aegolius funereus) | České sovy",
         description: "Malá lesní sova severu a hor. Jak sýce rousného poznat, kdy se ozývá a kde máš v ČR největší šanci na záznam.",
-        images: ["https://www.ceskesovy.cz/druhy/syc-rousny/images/syc-rousny-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/syc-rousny/images/syc-rousny-main.webp"],
     },
 };
 
@@ -59,11 +59,11 @@ export default function SycRousnyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/syc-rousny/images/syc-rousny-main.jpg", alt: "Sýc rousný na větvi", loading: "eager", priority: true },
-        { src: "/druhy/syc-rousny/images/syc-rousny-1.jpg", alt: "Sýc rousný v zimním lese" },
-        { src: "/druhy/syc-rousny/images/syc-rousny-2.jpg", alt: "Detail sýce rousného" },
-        { src: "/druhy/syc-rousny/images/syc-rousny-3.jpg", alt: "Sýc rousný při noční aktivitě" },
-        { src: "/druhy/syc-rousny/images/syc-rousny-4.jpg", alt: "Sýc rousný v přirozeném prostředí" },
+        { src: "/druhy/syc-rousny/images/syc-rousny-main.webp", alt: "Sýc rousný na větvi", loading: "eager", priority: true },
+        { src: "/druhy/syc-rousny/images/syc-rousny-1.webp", alt: "Sýc rousný v zimním lese" },
+        { src: "/druhy/syc-rousny/images/syc-rousny-2.webp", alt: "Detail sýce rousného" },
+        { src: "/druhy/syc-rousny/images/syc-rousny-3.webp", alt: "Sýc rousný při noční aktivitě" },
+        { src: "/druhy/syc-rousny/images/syc-rousny-4.webp", alt: "Sýc rousný v přirozeném prostředí" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/syc-rousny/images/map.webp", alt: "Mapa výskytu sýce rousného" }] as const;

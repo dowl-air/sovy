@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Největší sova Evropy. Jak výra poznat, kdy houká, kde hnízdí a kdy máte největší šanci ho v ČR pozorovat.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/vyr-velky/images/vyr-velky-bubo-bubo.jpg",
+                url: "https://www.ceskesovy.cz/druhy/vyr-velky/images/vyr-velky-bubo-bubo.webp",
                 alt: "Výr velký (Bubo bubo)",
             },
         ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         description: "Největší sova Evropy. Jak výra poznat, kdy houká, kde hnízdí a kdy máte největší šanci ho v ČR pozorovat.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/vyr-velky/images/vyr-velky-bubo-bubo.jpg",
+                url: "https://www.ceskesovy.cz/druhy/vyr-velky/images/vyr-velky-bubo-bubo.webp",
                 alt: "Výr velký (Bubo bubo)",
             },
         ],
@@ -64,11 +64,11 @@ export default function VyrVelkyPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/vyr-velky/images/vyr-velky-bubo-bubo.jpg", alt: "Výr velký u paty stromu s mláďaty", loading: "eager", priority: true },
-        { src: "/druhy/vyr-velky/images/vyrvelky.jpg", alt: "Výr velký za letu při lovu" },
-        { src: "/druhy/vyr-velky/images/vyr-velky-hnizdeni.jpg", alt: "Mláďata výra velkého" },
-        { src: "/druhy/vyr-velky/images/vyr-velky.jpg", alt: "Výr velký za letu" },
-        { src: "/druhy/vyr-velky/images/vyr.jpg", alt: "Výr velký stojící" },
+        { src: "/druhy/vyr-velky/images/vyr-velky-bubo-bubo.webp", alt: "Výr velký u paty stromu s mláďaty", loading: "eager", priority: true },
+        { src: "/druhy/vyr-velky/images/vyrvelky.webp", alt: "Výr velký za letu při lovu" },
+        { src: "/druhy/vyr-velky/images/vyr-velky-hnizdeni.webp", alt: "Mláďata výra velkého" },
+        { src: "/druhy/vyr-velky/images/vyr-velky.webp", alt: "Výr velký za letu" },
+        { src: "/druhy/vyr-velky/images/vyr.webp", alt: "Výr velký stojící" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/vyr-velky/images/map.webp", alt: "Mapa výskytu Výra velkého ve světě" }] as const;

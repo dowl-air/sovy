@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Sova otevřených luk a mokřadů, často aktivní i za dne. Jak kalouse pustovku poznat, slyšet a kde se v ČR objevuje.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/kalous-pustovka/images/kalous-pustovka-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/kalous-pustovka/images/kalous-pustovka-main.webp",
                 alt: "Kalous pustovka (Asio flammeus)",
             },
         ],
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Kalous pustovka (Asio flammeus) | České sovy",
         description: "Sova otevřených luk a mokřadů, často aktivní i za dne. Jak kalouse pustovku poznat, slyšet a kde se v ČR objevuje.",
-        images: ["https://www.ceskesovy.cz/druhy/kalous-pustovka/images/kalous-pustovka-main.jpg"],
+        images: ["https://www.ceskesovy.cz/druhy/kalous-pustovka/images/kalous-pustovka-main.webp"],
     },
 };
 
@@ -59,11 +59,11 @@ export default function KalousPustovkaPage() {
     ] as const;
 
     const heroGalleryImages = [
-        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-main.jpg", alt: "Kalous pustovka na sloupku", loading: "eager", priority: true },
-        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-v-letu.jpg", alt: "Kalous pustovka při letu nízko nad terénem" },
-        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-na-sloupu.jpg", alt: "Kalous pustovka v otevřené krajině" },
-        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-portret.jpg", alt: "Portrét kalouse pustovky se žlutýma očima" },
-        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-v-trave.jpg", alt: "Kalous pustovka na travnaté ploše" },
+        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-main.webp", alt: "Kalous pustovka na sloupku", loading: "eager", priority: true },
+        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-v-letu.webp", alt: "Kalous pustovka při letu nízko nad terénem" },
+        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-na-sloupu.webp", alt: "Kalous pustovka v otevřené krajině" },
+        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-portret.webp", alt: "Portrét kalouse pustovky se žlutýma očima" },
+        { src: "/druhy/kalous-pustovka/images/kalous-pustovka-v-trave.webp", alt: "Kalous pustovka na travnaté ploše" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/kalous-pustovka/images/map.webp", alt: "Mapa výskytu kalouse pustovky" }] as const;

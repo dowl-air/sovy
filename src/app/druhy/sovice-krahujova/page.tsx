@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         description: "Denně aktivní sova boreálních lesů. Jak sovici krahujovou poznat, kde žije a proč se jí říká jestřábí sova.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sovice-krahujova/images/sovice-krahujova-main.webp",
                 alt: "Sovice krahujová (Surnia ulula)",
             },
         ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         description: "Denně aktivní sova boreálních lesů. Jak sovici krahujovou poznat, kde žije a proč se jí říká jestřábí sova.",
         images: [
             {
-                url: "https://www.ceskesovy.cz/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg",
+                url: "https://www.ceskesovy.cz/druhy/sovice-krahujova/images/sovice-krahujova-main.webp",
                 alt: "Sovice krahujová (Surnia ulula)",
             },
         ],
@@ -65,15 +65,15 @@ export default function SoviceKrahujovaPage() {
 
     const heroGalleryImages = [
         {
-            src: "/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg",
+            src: "/druhy/sovice-krahujova/images/sovice-krahujova-main.webp",
             alt: "Sovice krahujová na otevřené větvi",
             loading: "eager",
             priority: true,
         },
-        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-2.jpg", alt: "Sovice krahujová při pozorování okolí" },
-        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-3.jpg", alt: "Portrét sovice krahujové" },
-        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-4.jpg", alt: "Sovice krahujová v otevřeném boreálním lese" },
-        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-5.jpg", alt: "Sovice krahujová v zimním prostředí" },
+        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-2.webp", alt: "Sovice krahujová při pozorování okolí" },
+        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-3.webp", alt: "Portrét sovice krahujové" },
+        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-4.webp", alt: "Sovice krahujová v otevřeném boreálním lese" },
+        { src: "/druhy/sovice-krahujova/images/sovice-krahujova-5.webp", alt: "Sovice krahujová v zimním prostředí" },
     ] as const;
 
     const mapGalleryImages = [{ src: "/druhy/sovice-krahujova/images/map.webp", alt: "Mapa světového výskytu sovice krahujové" }] as const;
