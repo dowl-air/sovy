@@ -26,6 +26,8 @@ export function HeroLightboxGallery({ images }: HeroGalleryProps) {
     const [index, setIndex] = useState(0);
 
     const slides = useMemo(() => images.map((image) => ({ src: image.src })), [images]);
+    const heroSizes = "(min-width: 1280px) 740px, (min-width: 1024px) 58vw, 100vw";
+    const thumbSizes = "(min-width: 1280px) 250px, (min-width: 1024px) 20vw, 50vw";
 
     if (images.length === 0) {
         return null;
@@ -52,6 +54,7 @@ export function HeroLightboxGallery({ images }: HeroGalleryProps) {
                         loading={images[0].loading ?? "eager"}
                         priority={images[0].priority}
                         fetchPriority="high"
+                        sizes={heroSizes}
                         width={1600}
                         height={1000}
                     />
@@ -71,6 +74,7 @@ export function HeroLightboxGallery({ images }: HeroGalleryProps) {
                                 alt={image.alt}
                                 className="h-full w-full object-cover"
                                 loading={image.loading ?? "lazy"}
+                                sizes={thumbSizes}
                                 width={900}
                                 height={900}
                             />
@@ -89,6 +93,7 @@ export function MapLightboxGallery({ images }: MapGalleryProps) {
     const [index, setIndex] = useState(0);
 
     const slides = useMemo(() => images.map((image) => ({ src: image.src })), [images]);
+    const mapSizes = images.length > 1 ? "(min-width: 768px) 50vw, 100vw" : "100vw";
 
     return (
         <>
@@ -109,6 +114,8 @@ export function MapLightboxGallery({ images }: MapGalleryProps) {
                             alt={image.alt}
                             className="h-auto w-full object-contain"
                             loading={image.loading ?? "lazy"}
+                            sizes={mapSizes}
+                            quality={80}
                             width={1400}
                             height={900}
                         />

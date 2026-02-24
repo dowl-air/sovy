@@ -105,6 +105,9 @@ export default function RootLayout({
                                         width={770}
                                         height={460}
                                         className="inline-block mr-2 object-contain"
+                                        sizes="120px"
+                                        quality={60}
+                                        priority
                                     />
                                 </div>
                             </Link>
