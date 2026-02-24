@@ -7,6 +7,7 @@ Statický web postavený na Next.js (App Router), Tailwind CSS a DaisyUI.
 - Domovská stránka: `/`
 - Detaily druhů:
     - `/druhy/vyr-velky`
+    - `/druhy/kalous-pustovka`
     - `/druhy/sycek-obecny`
     - `/druhy/vyrecek-maly`
     - `/druhy/syc-rousny`

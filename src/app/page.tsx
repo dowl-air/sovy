@@ -165,6 +165,66 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
+                                src="/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.jpg"
+                                alt="Kulíšek nejmenší"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Kulíšek nejmenší</h3>
+                            <p>Nejmenší evropská sova, nenápadný lesní lovec s vysokým pískavým hlasem.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/kulisek-nejmensi" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
+                                src="/druhy/kalous-usaty/images/kalous-usaty-main.jpg"
+                                alt="Kalous ušatý"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Kalous ušatý</h3>
+                            <p>Štíhlá sova s výraznými oušky, častá na okrajích lesů a v otevřené zemědělské krajině.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/kalous-usaty" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
+                                src="/druhy/kalous-pustovka/images/kalous-pustovka-main.jpg"
+                                alt="Kalous pustovka"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Kalous pustovka</h3>
+                            <p>Sova otevřených luk a mokřadů s krátkými oušky, která je nápadně aktivní i za dne.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/kalous-pustovka" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
                                 src="/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg"
                                 alt="Sovice krahujová"
                                 className="h-full w-full object-cover"
