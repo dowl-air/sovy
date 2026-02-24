@@ -125,6 +125,46 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
+                                src="/druhy/pustik-obecny/images/pustik-obecny-main.jpg"
+                                alt="Puštík obecný"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Puštík obecný</h3>
+                            <p>Nejpočetnější česká sova s tmavýma očima a typickým nočním houkáním, častá v lesích i parcích.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/pustik-obecny" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
+                                src="/druhy/pustik-belavy/images/pustik-belavy-main.jpg"
+                                alt="Puštík bělavý"
+                                className="h-full w-full object-cover"
+                                loading="lazy"
+                            />
+                        </figure>
+                        <div className="card-body">
+                            <h3 className="card-title">Puštík bělavý</h3>
+                            <p>Velká světlá lesní sova s dlouhým ocasem, v ČR velmi vzácná a vázaná na staré lesní porosty.</p>
+                            <div className="card-actions justify-end">
+                                <Link href="/druhy/pustik-belavy" className="btn btn-primary btn-sm">
+                                    Detail druhu
+                                </Link>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <figure className="aspect-4/3 overflow-hidden">
+                            <img
                                 src="/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg"
                                 alt="Sovice krahujová"
                                 className="h-full w-full object-cover"
