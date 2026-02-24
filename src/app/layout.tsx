@@ -125,7 +125,7 @@ export default function RootLayout({
                                 <h3 className="text-sm font-semibold uppercase tracking-wide">Rychlé odkazy</h3>
                                 <ul className="space-y-1 text-sm">
                                     <li>
-                                        <Link href="/druhy/vyr-velky" className="link link-hover">
+                                        <Link href="/druhy" className="link link-hover">
                                             Druhy
                                         </Link>
                                     </li>

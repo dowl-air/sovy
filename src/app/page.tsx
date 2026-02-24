@@ -26,7 +26,7 @@ export default function Home() {
                             sovu.
                         </p>
                         <div className="flex flex-wrap gap-3">
-                            <Link href="/druhy/vyr-velky" className="btn btn-primary">
+                            <Link href="/druhy" className="btn btn-primary">
                                 Prozkoumat druhy sov
                             </Link>
                             <a href="#pomoc" className="btn btn-outline border-white/60 bg-black/30 text-white hover:border-white hover:bg-black/45">
@@ -70,7 +70,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/sovice-snezni/images/sovice-snezni-main.jpg"
+                                src="/druhy/sovice-snezni/images/sovice-snezni-main.webp"
                                 alt="Sovice sněžní"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -105,7 +105,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/sova-palena/images/sova-palena-main.jpg"
+                                src="/druhy/sova-palena/images/sova-palena-main.webp"
                                 alt="Sova pálená"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -125,7 +125,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/pustik-obecny/images/pustik-obecny-main.jpg"
+                                src="/druhy/pustik-obecny/images/pustik-obecny-main.webp"
                                 alt="Puštík obecný"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -145,7 +145,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/pustik-belavy/images/pustik-belavy-main.jpg"
+                                src="/druhy/pustik-belavy/images/pustik-belavy-main.webp"
                                 alt="Puštík bělavý"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -165,7 +165,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.jpg"
+                                src="/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.webp"
                                 alt="Kulíšek nejmenší"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -185,7 +185,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/kalous-usaty/images/kalous-usaty-main.jpg"
+                                src="/druhy/kalous-usaty/images/kalous-usaty-main.webp"
                                 alt="Kalous ušatý"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -205,7 +205,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/kalous-pustovka/images/kalous-pustovka-main.jpg"
+                                src="/druhy/kalous-pustovka/images/kalous-pustovka-main.webp"
                                 alt="Kalous pustovka"
                                 className="h-full w-full object-cover"
                                 loading="lazy"
@@ -225,7 +225,7 @@ export default function Home() {
                     <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                         <figure className="aspect-4/3 overflow-hidden">
                             <img
-                                src="/druhy/sovice-krahujova/images/sovice-krahujova-main.jpg"
+                                src="/druhy/sovice-krahujova/images/sovice-krahujova-main.webp"
                                 alt="Sovice krahujová"
                                 className="h-full w-full object-cover"
                                 loading="lazy"

@@ -51,6 +51,7 @@ export function HeroLightboxGallery({ images }: HeroGalleryProps) {
                         className="h-full w-full object-cover"
                         loading={images[0].loading ?? "eager"}
                         priority={images[0].priority}
+                        fetchPriority="high"
                         width={1600}
                         height={1000}
                     />
