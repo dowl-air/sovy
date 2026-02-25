@@ -18,7 +18,7 @@ const cspDirectives = [
 const nextConfig: NextConfig = {
     reactCompiler: true,
     images: {
-        qualities: [60, 75],
+        qualities: [60, 75, 80],
     },
     async headers() {
         return [

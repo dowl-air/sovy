@@ -1,22 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { preload } from "react-dom";
+import { OwlCard } from "@/components/owl-card";
 
 export const metadata: Metadata = {
     title: "České sovy – Přehled a informace",
-    description: "Informační web o sovách žijících v České republice.",
+    description: "Informační web o sovách žijících v České republice: druhy, rozpoznávání, hlas i praktická pomoc při nálezu sovy.",
 };
 
+const featuredOwls = [
+    {
+        commonName: "Puštík obecný",
+        scientificName: "Strix aluco",
+        href: "/druhy/pustik-obecny",
+        imageSrc: "/druhy/pustik-obecny/images/pustik-obecny-main.webp",
+        imageAlt: "Puštík obecný na větvi",
+        description: "Nejpočetnější česká sova s tmavýma očima a typickým nočním houkáním, častá v lesích i parcích.",
+    },
+    {
+        commonName: "Kalous ušatý",
+        scientificName: "Asio otus",
+        href: "/druhy/kalous-usaty",
+        imageSrc: "/druhy/kalous-usaty/images/kalous-usaty-main.webp",
+        imageAlt: "Kalous ušatý s výraznými oušky",
+        description: "Štíhlá sova s výraznými oušky, častá na okrajích lesů a v otevřené zemědělské krajině.",
+    },
+    {
+        commonName: "Výr velký",
+        scientificName: "Bubo bubo",
+        href: "/druhy/vyr-velky",
+        imageSrc: "/druhy/vyr-velky/images/vyr-velky-bubo-bubo.webp",
+        imageAlt: "Výr velký v lesním prostředí",
+        description: "Největší evropská sova s hlubokým houkáním a velmi výraznou siluetou.",
+    },
+] as const;
+
 export default function Home() {
+    preload("/owl-hero.jpg", { as: "image", fetchPriority: "high" });
+
     return (
         <div className="space-y-16 md:space-y-24">
-            <section className="relative overflow-hidden rounded-2xl">
+            <section className="relative overflow-hidden rounded-2xl border border-primary/25 shadow-[0_20px_45px_-30px_rgba(16,185,129,0.55)]">
                 <img
                     src="/owl-hero.jpg"
                     alt="Sova v nočním lese"
-                    className="absolute inset-0 h-full w-full object-cover object-[70%_80%]"
+                    className="absolute inset-0 h-full w-full object-cover object-[70%_60%]"
                     loading="eager"
+                    fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-linear-to-br from-black/75 via-black/60 to-emerald-950/75" />
+                <div className="pointer-events-none absolute -top-24 right-0 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-20 -left-8 h-56 w-56 rounded-full bg-info/15 blur-3xl" />
 
                 <div className="relative px-6 py-24 md:px-10">
                     <div className="max-w-3xl space-y-6 rounded-xl p-6 text-white md:p-8">
@@ -29,9 +63,12 @@ export default function Home() {
                             <Link href="/druhy" className="btn btn-primary">
                                 Prozkoumat druhy sov
                             </Link>
-                            <a href="#pomoc" className="btn btn-outline border-white/60 bg-black/30 text-white hover:border-white hover:bg-black/45">
+                            <Link
+                                href="/pomoc-sovam"
+                                className="btn btn-outline border-white/60 bg-black/30 text-white hover:border-white hover:bg-black/45"
+                            >
                                 Jak pomoci sovám
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -39,208 +76,20 @@ export default function Home() {
 
             <section id="druhy" className="space-y-8 py-4">
                 <div className="space-y-3">
-                    <h2 className="text-3xl font-bold md:text-4xl">Přehled hlavních druhů sov</h2>
-                    <p className="max-w-3xl text-base-content/80">
-                        Krátký přehled několika druhů, které můžete v české krajině pozorovat nebo zaslechnout.
-                    </p>
+                    <h2 className="text-3xl font-bold md:text-4xl">Přehled nejčastějších druhů sov v ČR</h2>
+                    <p className="max-w-3xl text-base-content/80">Sovy, se kterými se v české krajině můžeš setkat nejčastěji.</p>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-3">
-                    <article className="card md:col-span-2 bg-base-100 shadow-md ring-1 ring-primary/35 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=1200&q=80"
-                                alt="Výr velký"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <div className="badge badge-primary badge-outline">Největší sova ČR</div>
-                            <h3 className="card-title text-2xl">Výr velký</h3>
-                            <p>Dominantní noční lovec s rozpětím křídel až 180 cm, typický hlubokým houkáním a výraznou siluetou.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/vyr-velky" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
+                    {featuredOwls.map((owl) => (
+                        <OwlCard key={owl.href} {...owl} />
+                    ))}
+                </div>
 
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/sovice-snezni/images/sovice-snezni-main.webp"
-                                alt="Sovice sněžní"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Sovice sněžní</h3>
-                            <p>Arktická bílá sova, která se ve střední Evropě objevuje jen vzácně, hlavně v zimních měsících.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/sovice-snezni" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1000&q=80"
-                                alt="Sýček obecný"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Sýček obecný</h3>
-                            <p>Menší kriticky ohrožená sova kulturní krajiny, aktivní často i za šera.</p>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/sova-palena/images/sova-palena-main.webp"
-                                alt="Sova pálená"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Sova pálená</h3>
-                            <p>Sova se srdcovitým obličejem a syčivým hlasem, v Česku silně ohrožená změnami zemědělské krajiny.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/sova-palena" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/pustik-obecny/images/pustik-obecny-main.webp"
-                                alt="Puštík obecný"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Puštík obecný</h3>
-                            <p>Nejpočetnější česká sova s tmavýma očima a typickým nočním houkáním, častá v lesích i parcích.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/pustik-obecny" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/pustik-belavy/images/pustik-belavy-main.webp"
-                                alt="Puštík bělavý"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Puštík bělavý</h3>
-                            <p>Velká světlá lesní sova s dlouhým ocasem, v ČR velmi vzácná a vázaná na staré lesní porosty.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/pustik-belavy" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/kulisek-nejmensi/images/kulisek-nejmensi-main.webp"
-                                alt="Kulíšek nejmenší"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Kulíšek nejmenší</h3>
-                            <p>Nejmenší evropská sova, nenápadný lesní lovec s vysokým pískavým hlasem.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/kulisek-nejmensi" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/kalous-usaty/images/kalous-usaty-main.webp"
-                                alt="Kalous ušatý"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Kalous ušatý</h3>
-                            <p>Štíhlá sova s výraznými oušky, častá na okrajích lesů a v otevřené zemědělské krajině.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/kalous-usaty" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/kalous-pustovka/images/kalous-pustovka-main.webp"
-                                alt="Kalous pustovka"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Kalous pustovka</h3>
-                            <p>Sova otevřených luk a mokřadů s krátkými oušky, která je nápadně aktivní i za dne.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/kalous-pustovka" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article className="card bg-base-100 shadow-md ring-1 ring-base-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                        <figure className="aspect-4/3 overflow-hidden">
-                            <img
-                                src="/druhy/sovice-krahujova/images/sovice-krahujova-main.webp"
-                                alt="Sovice krahujová"
-                                className="h-full w-full object-cover"
-                                loading="lazy"
-                            />
-                        </figure>
-                        <div className="card-body">
-                            <h3 className="card-title">Sovice krahujová</h3>
-                            <p>Sova severních lesů s dlouhým ocasem a dravčí siluetou, která často loví i za dne.</p>
-                            <div className="card-actions justify-end">
-                                <Link href="/druhy/sovice-krahujova" className="btn btn-primary btn-sm">
-                                    Detail druhu
-                                </Link>
-                            </div>
-                        </div>
-                    </article>
+                <div className="flex justify-center">
+                    <Link href="/druhy" className="btn btn-primary btn-wide sm:btn-md">
+                        Prohlédnout všechny české sovy
+                    </Link>
                 </div>
             </section>
 
@@ -281,7 +130,7 @@ export default function Home() {
                     <h2 className="card-title text-3xl">Pomoc sovám</h2>
                     <p>Rychlý postup při nálezu zraněné sovy najdete na samostatné stránce s praktickými kroky.</p>
                     <div className="card-actions justify-start">
-                        <Link href="/pomoc" className="btn btn-primary btn-sm">
+                        <Link href="/pomoc-sovam" className="btn btn-primary btn-sm">
                             Zobrazit postup
                         </Link>
                     </div>

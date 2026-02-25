@@ -17,8 +17,8 @@ const navItems: NavItem[] = [
     },
     {
         label: "Pomoc sovám",
-        href: "/pomoc",
-        match: (pathname) => pathname.startsWith("/pomoc"),
+        href: "/pomoc-sovam",
+        match: (pathname) => pathname.startsWith("/pomoc-sovam"),
     },
     //TODO: přidat mapu
     /* {

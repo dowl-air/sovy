@@ -25,7 +25,24 @@ export const metadata: Metadata = {
     },
     metadataBase: new URL("https://www.ceskesovy.cz"),
     description: "Informační web o sovách žijících v České republice, jejich poznávání a ochraně.",
-    keywords: ["sovy", "ptáci", "ochrana přírody", "poznávání zvířat", "česká fauna"],
+    keywords: [
+        "sovy",
+        "ptáci",
+        "ochrana přírody",
+        "poznávání zvířat",
+        "česká fauna",
+        "zraněné sovy",
+        "hnízdění sov",
+        "noční ptáci",
+        "soví mapa",
+        "soví hlas",
+        "soví stopy",
+        "soví druhy",
+        "soví průvodce",
+        "soví pomoc",
+        "soví záchrana",
+        "soví péče",
+    ],
     manifest: "/icon/site.webmanifest",
     icons: [
         {
@@ -134,7 +151,7 @@ export default function RootLayout({
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/pomoc" className="link link-hover">
+                                        <Link href="/pomoc-sovam" className="link link-hover">
                                             Pomoc sovám
                                         </Link>
                                     </li>
@@ -160,7 +177,13 @@ export default function RootLayout({
                         </div>
                         <div className="container mx-auto mt-8 w-full max-w-6xl px-4">
                             <div className="border-t border-base-300/70 pt-4 text-center text-xs text-base-content/70">
-                                © {currentYear} České sovy. Všechna práva vyhrazena.
+                                <p className="mt-2 text-sm text-base-content/80">
+                                    Vyrobeno s láskou, věnováno Barušce.
+                                    <span className="ml-1 inline-block text-error" aria-label="srdíčko">
+                                        ❤
+                                    </span>
+                                </p>
+                                <p className="mt-4">© {currentYear} České sovy. Všechna práva vyhrazena.</p>
                             </div>
                         </div>
                     </footer>
