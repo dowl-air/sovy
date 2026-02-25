@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { MainNav } from "@/components/main-nav";
+import { Analytics } from "@vercel/analytics/next";
 
 //@ts-ignore
 import "./globals.css";
@@ -164,6 +165,7 @@ export default function RootLayout({
                         </div>
                     </footer>
                 </div>
+                <Analytics />
             </body>
         </html>
     );
