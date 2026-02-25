@@ -12,7 +12,7 @@ Statický web postavený na Next.js (App Router), Tailwind CSS a DaisyUI.
     - `/druhy/vyrecek-maly`
     - `/druhy/syc-rousny`
     - `/druhy/sovice-snezni`
-- Postup při nálezu: `/co-delat`
+- Postup při nálezu: `/pomoc`
 - O projektu: `/o-projektu`
 
 ## UI poznámka: časová osa aktivity druhu

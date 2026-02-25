@@ -133,7 +133,7 @@ export default function RootLayout({
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/co-delat" className="link link-hover">
+                                        <Link href="/pomoc" className="link link-hover">
                                             Pomoc sovám
                                         </Link>
                                     </li>

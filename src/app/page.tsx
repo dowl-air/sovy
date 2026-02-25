@@ -281,7 +281,7 @@ export default function Home() {
                     <h2 className="card-title text-3xl">Pomoc sovám</h2>
                     <p>Rychlý postup při nálezu zraněné sovy najdete na samostatné stránce s praktickými kroky.</p>
                     <div className="card-actions justify-start">
-                        <Link href="/co-delat" className="btn btn-primary btn-sm">
+                        <Link href="/pomoc" className="btn btn-primary btn-sm">
                             Zobrazit postup
                         </Link>
                     </div>
